@@ -128,3 +128,16 @@ class Incontinent
     @class = Full.new.contents.collect(&:class).uniq.sample
   end
 end
+
+# Putrefaction
+#
+# An entity that only produces its data when deleted.
+class Putrefaction
+  def initialize
+    ObjectSpace.define_finalizer(self, self.class.finalize(self))
+  end
+
+  def self.finalize(_self)
+    proc { puts _self.inspect }
+  end
+end
