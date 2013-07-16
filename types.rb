@@ -51,10 +51,9 @@ end
 # Contains all living objects in the Ruby process
 # at the time of calling, including itself
 class Full
-  attr_reader :self, :contents
+  attr_reader :contents
 
   def initialize
-    @self = self
     @contents = ObjectSpace.each_object.collect(&:identity) << self
   end
 end
