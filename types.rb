@@ -32,9 +32,8 @@ end; Creature.freeze
 #
 # An entity whose sole function is to invoke another entity.
 #
-# => poltergiest = Poltergeist.new("disturbance")
-# => poltergiest.upcase
-# => "DISTURBANCE"
+# => Poltergeist.new("disturbance").upcase
+#   => "DISTURBANCE"
 class Poltergeist < Empty
   attr_reader :object
 
@@ -65,15 +64,15 @@ end
 # An entity that is unbounded in quality and magnitude.
 #
 # => Infinity.new.identity.infinite?
-# => -1..1
+#   => -1..1
 #
 # => Infinity.new.each { puts "Infinite" }
-# => Infinite
-# => Infinite
-# => ...
+#   => Infinite
+#   => Infinite
+#   => ...
 #
 # => Infinity.new == Infinity.new
-# => false
+#   => false
 class Infinity
   def identity
     self.class.identity
@@ -106,5 +105,25 @@ class Qualitative
     raise ArgumentError if contents.to_f == contents
 
     @contents = contents
+  end
+end
+
+# Incontinent
+#
+# An entity that involuntary (todo) expresses itself as any other data type.
+#
+# => Incontinent.klass
+#   => Process::Status
+# => Incontinent.klass
+#   => Float
+# => Incontinent.klass
+#   => RubyToken::TkIDENTIFIER
+# => Incontinent.klass
+#   => Array
+# => Incontinent.klass
+#   => Regexp
+class Incontinent
+  def self.klass
+    Full.new.contents.collect(&:class).uniq.sample
   end
 end
