@@ -4,6 +4,14 @@ class Object
   end
 end
 
+class Range
+  def infinite?
+    return (-1..1) if self.first.to_f.infinite? && self.last.to_f.infinite?
+
+    self.first.to_f.infinite? || self.last.to_f.infinite?
+  end
+end
+
 # Empty
 #
 # A null entity lacking any and all material or immaterial distinction.
@@ -54,6 +62,17 @@ end
 # Infinity
 #
 # An entity that is unbounded in quality and magnitude.
+#
+# => Infinity.new.identity.infinite?
+# => -1..1
+#
+# => Infinity.new.each { puts "Infinite" }
+# => Infinite
+# => Infinite
+# => ...
+#
+# => Infinity.new == Infinity.new
+# => false
 class Infinity
   def identity
     self.class.identity
@@ -69,6 +88,10 @@ class Infinity
 
   def self.negative
     -1.0 / 0.0
+  end
+
+  def each
+    loop { yield }
   end
 end
 
