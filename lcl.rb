@@ -18,3 +18,13 @@ def never(&block)
   nil
 end
 
+# Unordered
+#
+# Executes a set of statements out of sequence.
+def unordered(*args)
+  args.shuffle.each do |statement|
+    eval(statement)
+  end
+
+  nil
+end
