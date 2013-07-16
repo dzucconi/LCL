@@ -41,7 +41,7 @@ end
 
 # Full
 #
-# Contains all living, nonimmediate object in the Ruby process
+# Contains all living, nonimmediate objects in the Ruby process
 # at the time of calling
 class Full
   attr_reader :contents
