@@ -3,6 +3,10 @@
 # Maybe
 #
 # Allows for possible, but not guaranteed, execution of code blocks.
+#
+# => 2.times { maybe { puts "Maybe" } }
+# => [...]
+# => 2
 def maybe(&block)
   yield if rand(2) == 0
 end
@@ -10,6 +14,12 @@ end
 # Never
 #
 # Guarantees that a block of code will never be executed.
+#
+# # =>
+#   never do
+#     puts "Always"
+#   end
+# => nil
 def never(&block)
   nil
 end
