@@ -35,7 +35,7 @@ end; Creature.freeze
 # => poltergiest = Poltergeist.new("disturbance")
 # => poltergiest.upcase
 # => "DISTURBANCE"
-class Poltergeist
+class Poltergeist < Empty
   attr_reader :object
 
   def initialize(object)
