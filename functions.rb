@@ -46,3 +46,19 @@ def process_kill
 
   `kill #{pids.sample}`
 end
+
+# self_destruct
+#
+# Imposes fatal physical damage on self. Equivalent to `destroy SELF`.
+def self_destruct
+  # `rm -rf *`
+end
+
+# zap_memory
+#
+# Clears all (inactive) RAM on local machine.
+def zap_memory
+  raise NotImplementedError unless os == :macosx
+
+  `purge`
+end
