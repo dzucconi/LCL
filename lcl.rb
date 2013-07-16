@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Fixnum
   def to_boolean
     self == 0 ? false : true
@@ -21,10 +23,8 @@ end
 # Unordered
 #
 # Executes a set of statements out of sequence.
-def unordered(*args)
-  args.shuffle.each do |statement|
-    eval(statement)
-  end
+def unordered(*lambdas)
+  lambdas.shuffle.each { |λ| λ.call }
 
   nil
 end
