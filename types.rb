@@ -50,3 +50,24 @@ class Full
     @contents = ObjectSpace.each_object.collect(&:identity)
   end
 end
+
+# Infinity
+#
+# An entity that is unbounded in quality and magnitude.
+class Infinity
+  def identity
+    self.class.identity
+  end
+
+  def self.identity
+    negative..positive
+  end
+
+  def self.positive
+    +1.0 / 0.0
+  end
+
+  def self.negative
+    -1.0 / 0.0
+  end
+end
