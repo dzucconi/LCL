@@ -131,7 +131,7 @@ end
 
 # Putrefaction
 #
-# An entity that only produces its data when deleted.
+# An entity that only produces its data when deleted (garbage collected).
 class Putrefaction
   def initialize
     ObjectSpace.define_finalizer(self, self.class.finalize(self))
