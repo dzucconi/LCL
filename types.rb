@@ -112,18 +112,20 @@ end
 #
 # An entity that involuntary (todo) expresses itself as any other data type.
 #
-# => Incontinent.klass
+# => Incontinent.new.class
 #   => Process::Status
-# => Incontinent.klass
+# => Incontinent.new.class
 #   => Float
-# => Incontinent.klass
+# => Incontinent.new.class
 #   => RubyToken::TkIDENTIFIER
-# => Incontinent.klass
+# => Incontinent.new.class
 #   => Array
-# => Incontinent.klass
+# => Incontinent.new.class
 #   => Regexp
 class Incontinent
-  def self.klass
-    Full.new.contents.collect(&:class).uniq.sample
+  attr_reader :class
+
+  def initialize
+    @class = Full.new.contents.collect(&:class).uniq.sample
   end
 end
