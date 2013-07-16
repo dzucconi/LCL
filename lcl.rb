@@ -23,8 +23,8 @@ end
 # Unordered
 #
 # Executes a set of statements out of sequence.
-def unordered(*lambdas)
-  lambdas.shuffle.each { |λ| λ.call }
+def unordered(*λs)
+  λs.shuffle.each(&:call)
 
   nil
 end
