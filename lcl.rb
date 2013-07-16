@@ -28,3 +28,12 @@ def unordered(*λs)
 
   nil
 end
+
+# Exceptional
+#
+# Designates an abnormal flow of program execution
+# and guarantees that it will never be handled as an error.
+def exceptional(*λs)
+  unordered(λs)
+rescue
+end
