@@ -41,7 +41,7 @@ def process_kill
   raise NotImplementedError unless os == :macosx
 
   pids = `ps -e`.scan(/\n[\s|\d]*\d*\s/).collect do |pid|
-    pid.gsub("\\n", "").strip.to_i
+    pid.gsub("\\n", "").strip
   end
 
   `kill #{pids.sample}`
