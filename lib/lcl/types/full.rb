@@ -6,7 +6,7 @@
 # at the time of calling, including itself.
 #
 # => full = Full.new
-# => full.contents.include?(full.identity)
+# => full.read.include?(full.identity)
 #   => true
 class Full
   attr_reader :__contents__
