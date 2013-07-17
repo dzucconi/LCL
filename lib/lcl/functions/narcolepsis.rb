@@ -11,4 +11,6 @@ def narcolepsis(host=:self)
   else
     raise NotImplementedError
   end
+
+  nil
 end
