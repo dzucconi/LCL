@@ -16,7 +16,11 @@
 class Gateway
   def initialize(a, b)
     [a, b].each do |klass|
-      method = "def gate; ObjectSpace._id2ref(#{(klass == a ? b : a).object_id}); end"
+      method = <<-eos
+        def gate
+          ObjectSpace._id2ref(#{(klass == a ? b : a).object_id})
+        end
+      eos
 
       klass.instance_eval do
         eval(method)
