@@ -1,6 +1,18 @@
 # Gateway
 #
 # An associative entity connecting two or more other entities.
+#
+# => a = "first"
+# => b = "second"
+# => Gateway.new(a, b)
+# => a.gate
+#   => "second"
+# => b.gate
+#   => "first"
+# => a.gate.gate == a
+#   => true
+# => a.gate.gate.gate == b
+#   => true
 class Gateway
   def initialize(a, b)
     [a, b].each do |klass|
