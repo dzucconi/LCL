@@ -11,13 +11,13 @@
 # => Incontinent.new.class
 #   => Regexp
 class Incontinent < Empty
-  attr_reader :delegate
+  attr_reader :__delegate__
 
   def initialize
-    @delegate = ObjectSpace.each_object.collect(&:identity).sample
+    @__delegate__ = ObjectSpace.each_object.collect(&:identity).sample
   end
 
   def method_missing(method, *args, &block)
-    delegate.send(method, *args, &block)
+    __delegate__.send(method, *args, &block)
   end
 end

@@ -13,13 +13,13 @@ require File.expand_path(File.dirname(__FILE__) + "/empty")
 # => poltergeist.object_id == string.object_id
 #   => true
 class Poltergeist < Empty
-  attr_reader :object
+  attr_reader :__delegate__
 
-  def initialize(object)
-    @object = object
+  def initialize(__delegate__)
+    @__delegate__ = __delegate__
   end
 
   def method_missing(method, *args, &block)
-    object.send(method, *args, &block)
+    __delegate__.send(method, *args, &block)
   end
 end

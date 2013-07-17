@@ -9,9 +9,13 @@
 # => full.contents.include?(full.identity)
 #   => true
 class Full
-  attr_reader :contents
+  attr_reader :__contents__
 
   def initialize
-    @contents = ObjectSpace.each_object.collect(&:identity) << self
+    @__contents__ = ObjectSpace.each_object.collect(&:identity) << self
+  end
+
+  def read
+    __contents__
   end
 end
