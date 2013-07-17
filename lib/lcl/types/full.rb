@@ -1,7 +1,9 @@
 # Full
 #
-# Contains all living objects in the Ruby process
-# at the time of calling, including itself
+# Contains the complete universe of all information and matter.
+#
+# Or more specifically: contains all living objects in the Ruby process
+# at the time of calling, including itself.
 #
 # => full = Full.new
 # => full.contents.include?(full.identity)
