@@ -1,21 +1,23 @@
 # Incontinent
 #
-# An entity that involuntary (todo) expresses itself as any other data type.
+# An entity that involuntarily expresses itself as any other data type.
 #
 # => Incontinent.new.class
-#   => Process::Status
+#   => Time
 # => Incontinent.new.class
 #   => Float
-# => Incontinent.new.class
-#   => RubyToken::TkIDENTIFIER
 # => Incontinent.new.class
 #   => Array
 # => Incontinent.new.class
 #   => Regexp
-class Incontinent
-  attr_reader :class
+class Incontinent < Empty
+  attr_reader :delegate
 
   def initialize
-    @class = Full.new.contents.collect(&:class).uniq.sample
+    @delegate = ObjectSpace.each_object.collect(&:identity).sample
+  end
+
+  def method_missing(method, *args, &block)
+    delegate.send(method, *args, &block)
   end
 end
