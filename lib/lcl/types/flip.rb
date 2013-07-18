@@ -4,11 +4,13 @@
 class Flip
   attr_reader :__a__, :__b__
   attr_accessor :__counter__
+
   private :__a__, :__b__, :__counter__
 
   def initialize(a, b)
     @__a__ = a
     @__b__ = b
+
     @__counter__ = -1
   end
 
