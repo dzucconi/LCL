@@ -4,10 +4,10 @@
 class Qualitative
   attr_reader :__contents__
 
-  def initialize(__contents__)
-    raise ArgumentError if __contents__.to_f == __contents__
+  def initialize(object)
+    raise ArgumentError if object.to_f == object
 
-    @__contents__ = __contents__
+    @__contents__ = object
   end
 
   def read

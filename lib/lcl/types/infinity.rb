@@ -32,4 +32,8 @@ class Infinity
   def each
     loop { yield }
   end
+
+  def infinite?
+    true
+  end
 end
