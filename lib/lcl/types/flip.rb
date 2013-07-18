@@ -12,13 +12,13 @@ class Flip
     @__counter__ = -1
   end
 
-  def method_missing(method, *args, &block)
-    __delegate__.send(method, *args, &block)
-  end
-
   def __delegate__
     @__counter__ += 1
 
     @__counter__ % 2 == 0 ? __a__ : __b__
+  end
+
+  def method_missing(method, *args, &block)
+    __delegate__.send(method, *args, &block)
   end
 end
