@@ -13,6 +13,9 @@
 #   => true
 # => a.gate.gate.gate == b
 #   => true
+#
+# => rand(100).times.collect { "gate" }.inject(a, &:send)
+#   => "first" || "second"
 class Gateway
   def initialize(a, b)
     [a, b].each do |klass|
