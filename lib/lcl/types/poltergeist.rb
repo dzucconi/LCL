@@ -12,6 +12,8 @@ require File.expand_path(File.dirname(__FILE__) + "/empty")
 #   => String
 # => poltergeist.object_id == string.object_id
 #   => true
+# => poltergeist == string
+#   => true
 class Poltergeist < Empty
   attr_reader :__delegate__
 
