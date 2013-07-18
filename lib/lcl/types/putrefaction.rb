@@ -8,15 +8,18 @@
 # => exit
 #   => #<Putrefaction:0x007fb7531a13e8 @__object__="information">
 class Putrefaction
+  private :inspect
+
   def initialize(object)
     @__object__ = object
 
-    ObjectSpace.define_finalizer(self, self.class.finalize(self))
+    ObjectSpace.define_finalizer(self, self.class.send(:finalize, self))
   end
 
-  def self.finalize(_self)
-    proc { STDOUT.write(_self.send(:inspect)) }
+  class << self
+  private
+    def finalize(_self)
+      proc { STDOUT.write(_self.send(:inspect)) }
+    end
   end
-
-  private :inspect
 end
