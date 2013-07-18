@@ -15,8 +15,8 @@ require File.expand_path(File.dirname(__FILE__) + "/empty")
 class Poltergeist < Empty
   attr_reader :__delegate__
 
-  def initialize(__delegate__)
-    @__delegate__ = __delegate__
+  def initialize(object)
+    @__delegate__ = object
   end
 
   def method_missing(method, *args, &block)
