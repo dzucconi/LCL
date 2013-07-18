@@ -6,7 +6,7 @@
 #
 # # =>
 #   unordered(*("a".."z").collect.with_index do |_, i|
-#     ->{ STDOUT.write("#{_}#{i}") }
+#     -> { STDOUT.write("#{_}#{i}") }
 #   end)
 #   => w22s18e4n13g6q16t19b1c2h7j9x23y24v21p15o14d3a0l11m12z25k10i8f5r17u20
 #
