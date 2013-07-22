@@ -8,9 +8,7 @@ class Historic
   end
 
   def method_missing(method, *args, &block)
-    args.each do |arg|
-      self << __recent__.send(method, arg, &block)
-    end
+    self << __recent__.send(method, *args, &block)
 
     __recent__
   end
@@ -30,6 +28,7 @@ class Historic
   end
   alias_method :inspect, :__recent__
   alias_method :to_s, :__recent__
+  alias_method :value, :__recent__
 
   def self.wrap(value)
     { value: value, time: Time.now }
