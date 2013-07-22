@@ -1,8 +1,8 @@
 class Historic
-  attr_reader :values
+  attr_reader :__values__
 
   def initialize(value)
-    @values = [].tap do |values|
+    @__values__ = [].tap do |values|
       values << self.class.wrap(value)
     end
   end
@@ -14,17 +14,17 @@ class Historic
   end
 
   def <<(value)
-    values << self.class.wrap(value)
+    __values__ << self.class.wrap(value)
 
     __recent__
   end
 
-  def __values__
-    values.map { |value| value[:value] }
+  def values
+    __values__.map { |value| value[:value] }
   end
 
   def __recent__
-    __values__.last
+    values.last
   end
   alias_method :inspect, :__recent__
   alias_method :to_s, :__recent__
