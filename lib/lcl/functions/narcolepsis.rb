@@ -6,7 +6,7 @@ def narcolepsis(host=:self)
 
   case os
   when :macosx  then `osascript -e 'tell application "System Events" to sleep'`
-  when :linux   then `pmi action suspend`
+  when :linux   then  system File.expand_path(File.dirname(__FILE__) + "/scripts/suspend.sh")
   when :windows then `rundll32.exe PowrProf.dll,SetSuspendState`
   else
     raise NotImplementedError
