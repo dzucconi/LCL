@@ -1,3 +1,5 @@
+require File.expand_path(File.dirname(__FILE__) + "/empty")
+
 # Incontinent
 #
 # An entity that involuntarily expresses itself as any other data type.
