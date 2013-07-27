@@ -6,5 +6,5 @@
 #   => [...]
 #   => 2
 def maybe(&block)
-  yield if rand(2) == 0
+  yield if [true, false].sample
 end
