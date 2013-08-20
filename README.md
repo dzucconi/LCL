@@ -1,4 +1,4 @@
-LCL
+lcl.rb
 ===
 
 Implementation of some aspects of a Liberated Computer Language in Ruby
